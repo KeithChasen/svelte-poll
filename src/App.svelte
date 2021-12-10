@@ -14,8 +14,6 @@
 	}
 
 	const handleAddPoll = (e) => {
-		const poll = e.detail;
-		polls = [poll, ...polls];
 		activeTab = 'Current Polls';
 	}
 
