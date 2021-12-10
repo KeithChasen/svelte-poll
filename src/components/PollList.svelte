@@ -2,11 +2,6 @@
     import { onMount, onDestroy } from 'svelte';
     import PollStore from "../stores/PollStore";
     import PollDetails from "./PollDetails.svelte";
-    export let polls = [];
-
-    PollStore.subscribe(data => {
-       polls = data;
-    });
 
     onMount(() => {
        console.log('component mounted')
@@ -19,7 +14,7 @@
 </script>
 
 <div class="poll-list">
-    {#each polls as poll (poll.id)}
+    {#each $PollStore as poll (poll.id)}
         <PollDetails {poll} on:vote/>
     {/each}
 </div>
