@@ -1,6 +1,5 @@
 <script>
-    import { fade, slide, scale } from 'svelte/transition';
-    import { flip } from 'svelte/animate';
+    import { fade, scale } from 'svelte/transition';
     import { onMount, onDestroy } from 'svelte';
     import PollStore from "../stores/PollStore";
     import PollDetails from "./PollDetails.svelte";
@@ -19,7 +18,7 @@
     {#each $PollStore as poll (poll.id)}
 <!--         svelte transitions are allowed only for html tags-->
 <!--         |local means it will be triggered only in case one particular poll is deleted-->
-        <div in:fade out:scale|local animate:flip={{ duration: 500 }}>
+        <div in:fade out:scale|local>
             <PollDetails {poll} />
         </div>
     {/each}
